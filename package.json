@@ -1,0 +1,29 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "This is namaste react",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "silpa",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "postcss": "^8.5.3",
+    "process": "^0.11.10",
+    "tailwindcss": "^4.0.8"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.6.0",
+    "@tailwindcss/postcss": "^4.0.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.1.5"
+  },
+  "browserlist": [
+    "last 2 versions"
+  ]
+}
