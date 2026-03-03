@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { LOGO_URL } from "../utils/contants";
+import { LOGO_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnLogin, setBtnLogin] = useState("Login");
+  const onlineStatus = useOnlineStatus();
   return (
     <div>
       <header className="flex justify-between  shadow-xl ">
@@ -17,15 +20,28 @@ const Header = () => {
             className="flex
          justify-between items-center m-14"
           >
-            <li className="p-2 font-bold text-xl hover:text-red-600 cursor-pointer">
-              Home
-            </li>
-            <li className="p-2 font-bold text-xl  hover:text-red-600 cursor-pointer">
-              About
-            </li>
-            <li className="p-2 font-bold text-xl  hover:text-red-600 cursor-pointer">
-              Contact
-            </li>
+            <li>Online Status :{onlineStatus ? "✅" : "🛑"}</li>
+            <Link to="/">
+              <li className="p-2 font-bold text-xl hover:text-red-600 cursor-pointer">
+                Home
+              </li>
+            </Link>
+
+            <Link to="/about">
+              <li className="p-2 font-bold text-xl  hover:text-red-600 cursor-pointer">
+                About
+              </li>
+            </Link>
+            <Link to="/contact">
+              <li className="p-2 font-bold text-xl  hover:text-red-600 cursor-pointer">
+                Contact
+              </li>
+            </Link>
+            <Link to="/grocery">
+              <li className="p-2 font-bold text-xl  hover:text-red-600 cursor-pointer">
+                Grocery
+              </li>
+            </Link>
             <li className="p-2 font-bold text-xl  hover:text-red-600 cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
