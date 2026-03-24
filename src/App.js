@@ -6,14 +6,24 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import UserContext from "./utils/userContext";
 
 const AppLayout = () => {
+  const [userInfo, setUserInfo] = useState();
+  useEffect(() => {
+    const data = {
+      name: "silpa",
+    };
+    setUserInfo(data.name);
+  }, []);
   return (
     <div className="app min-h-screen flex flex-col">
-      <Header />
-      <Outlet />
-      <Footer />
+      <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </div>
   );
 };
@@ -34,7 +44,7 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
-            <About />,
+            <About />
           </Suspense>
         ),
       },
