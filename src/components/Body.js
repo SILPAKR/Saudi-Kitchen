@@ -68,15 +68,6 @@ const Body = () => {
         >
           Top rated restaurant
         </button>
-        <div>
-          <label htmlFor="">UserName</label>
-          <input
-            type="text"
-            className="border border-black p-2"
-            value={loggedInUser}
-            onChange={(e) => setUserInfo(e.target.value)}
-          />
-        </div>
       </div>
 
       <div className="res-container flex flex-wrap m-10 justify-center">

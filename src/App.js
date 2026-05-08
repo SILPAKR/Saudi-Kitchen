@@ -8,6 +8,9 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore.js";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
   const [userInfo, setUserInfo] = useState();
@@ -19,11 +22,13 @@ const AppLayout = () => {
   }, []);
   return (
     <div className="app min-h-screen flex flex-col">
-      <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserContext.Provider>
+      </Provider>
     </div>
   );
 };
@@ -59,6 +64,10 @@ const appRouter = createBrowserRouter([
             <Grocery />,
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/restaurant/:id",
