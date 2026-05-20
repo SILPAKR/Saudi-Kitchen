@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/userContext";
+import UserContext from "../utils/UserContext.js";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
