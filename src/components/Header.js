@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
-import UserContext from "../utils/userContext";
+import UserContext from "../utils/UserContext.js";
 import { useSelector } from "react-redux";
 
 const Header = () => {
